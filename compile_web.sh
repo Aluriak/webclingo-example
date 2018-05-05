@@ -20,7 +20,7 @@ cd ../..
 # now compile clingo
 # git clone git@github.com:potassco/clingo.git
 git clone https://github.com/potassco/clingo.git
-cd clingo -p
+cd clingo
 git submodule update --init --recursive
 
 mkdir -p build/web
