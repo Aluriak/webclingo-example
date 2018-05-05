@@ -28,6 +28,7 @@ cd build/web
 
 cmake .
 
+# to compile to WebAssembly, add -s WASM=1 to CMAKE_CXX_FLAGS
 emcmake cmake \
         -DCLINGO_BUILD_WEB=On \
         -DCLINGO_BUILD_WITH_PYTHON=Off \
@@ -48,3 +49,4 @@ make -C build/web web
 # copy the result into the test site
 cp ./clingo/build/web/bin/clingo.js ./test_site/js/
 cp ./clingo/build/web/bin/clingo.js.mem ./test_site/
+# cp ./clingo/build/web/bin/clingo.wasm ./test_site   # when WASM is given
