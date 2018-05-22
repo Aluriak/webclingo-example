@@ -32,7 +32,7 @@ git submodule update --init --recursive
 mkdir -p build/web
 cd build/web
 
-# to compile to WebAssembly, add -s WASM=1 to CMAKE_CXX_FLAGS
+# to compile ASM.js instead of WebAssembly, add -s WASM=0 to CMAKE_CXX_FLAGS
 emcmake cmake \
         -DCLINGO_BUILD_WEB=On \
         -DCLINGO_BUILD_WITH_PYTHON=Off \
@@ -53,5 +53,5 @@ make -C build/web web
 # copy the result into the test site
 cd ..  # return to root
 cp ./clingo/build/web/bin/clingo.js ./test_site/js/
-cp ./clingo/build/web/bin/clingo.js.mem ./test_site/
-# cp ./clingo/build/web/bin/clingo.wasm ./test_site   # when WASM is given
+# cp ./clingo/build/web/bin/clingo.js.mem ./test_site # when WASM=0 is given
+cp ./clingo/build/web/bin/clingo.wasm ./test_site
