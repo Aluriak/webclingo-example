@@ -1,3 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+set -x
+
 # install emscripten (copy-paste of documentation)
 mkdir emscripten -p
 cd emscripten
@@ -16,9 +21,10 @@ source ./emsdk_env.sh
 
 cd ../..
 
+# remove clingo if it already exists
+rm -rf clingo
 
 # now compile clingo
-# git clone git@github.com:potassco/clingo.git
 git clone https://github.com/potassco/clingo.git
 cd clingo
 git submodule update --init --recursive
