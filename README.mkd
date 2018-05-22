@@ -13,7 +13,7 @@ The `compile_web.sh` script will:
 
 - download [emscripten](http://kripken.github.io/emscripten-site/index.html) and source its env
 - download the clingo repository
-- run the web clingo compilation (currently without lua support)
+- run the web clingo compilation
 - properly place the output files into `test_site/`
 
 __You should probably not use this script as-is__, but instead take inspiration from it.
