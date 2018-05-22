@@ -120,5 +120,3 @@ if (QueryString.example !== undefined) {
   ex.value = "/clingo/run/examples/" + QueryString.example;
   load_example("/clingo/run/examples/" + QueryString.example);
 }
-
-
