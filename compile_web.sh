@@ -32,8 +32,6 @@ git submodule update --init --recursive
 mkdir -p build/web
 cd build/web
 
-cmake .
-
 # to compile to WebAssembly, add -s WASM=1 to CMAKE_CXX_FLAGS
 emcmake cmake \
         -DCLINGO_BUILD_WEB=On \
