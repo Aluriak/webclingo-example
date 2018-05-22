@@ -1,3 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+set -x
+
 # install emscripten (copy-paste of documentation)
 mkdir emscripten -p
 cd emscripten
