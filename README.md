@@ -22,7 +22,7 @@ __You should probably not use this script as-is__, but instead take inspiration 
 ## test_site
 
 This is a simple website copied and pruned from [potassco.org/clingo/run](https://potassco.org/clingo/run),
-which should be fully functional after the incorporation of `clingo.js` and `clingo.js.mem` files
+which should be fully functional after the incorporation of `clingo.js` and `clingo.wasm` files
 (made by `compile_web.sh` script)
 
 To open the website, 
