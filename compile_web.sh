@@ -4,7 +4,7 @@ set -e
 set -x
 
 # install emscripten (copy-paste of documentation)
-mkdir emscripten -p
+mkdir -p emscripten
 cd emscripten
 wget http://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz
 tar -xvf emsdk-portable.tar.gz
