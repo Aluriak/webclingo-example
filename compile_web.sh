@@ -38,7 +38,7 @@ cmake .
 emcmake cmake \
         -DCLINGO_BUILD_WEB=On \
         -DCLINGO_BUILD_WITH_PYTHON=Off \
-        -DCLINGO_BUILD_WITH_LUA=Off \
+        -DCLINGO_BUILD_WITH_LUA=On \
         -DCLINGO_BUILD_SHARED=Off \
         -DCLASP_BUILD_WITH_THREADS=Off \
         -DCMAKE_VERBOSE_MAKEFILE=On \
