@@ -1,4 +1,4 @@
-# Clingo in JS and WASM
+# Clingo in WASM
 
 Simple example of how to use clingo into browsers, client-side.
 The main principle is to compile clingo to js, then wrap it into client-side js modules.
@@ -33,8 +33,7 @@ To open the website,
 
 This site is static.
 
-- `clingo.js.mem`: compiled as JavaScript from clingo sources. To be placed next to the index.
-- `clingo.wasm`: compiled Webassembly from clingo sources. To be placed next to the index. Alternative to `clingo.js.mem`.
+- `clingo.wasm`: compiled Webassembly from clingo sources. To be placed next to the index.
 - `js/clingo.js`: compiled from clingo sources. To be placed in js directory.
 - `js/clingo-module.js`: wrapper around the clingo module, defining clingo call options based on user input and extracting the clingo output.
 - `js/mode-gringo.js`: wrapper around the ASP language (in order to manage lua extensions ?).

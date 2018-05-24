@@ -32,7 +32,6 @@ git submodule update --init --recursive
 mkdir -p build/web
 cd build/web
 
-# to compile ASM.js instead of WebAssembly, set -s ASM_JS=1 in CMAKE_CXX_FLAGS
 emcmake cmake \
         -DCLINGO_BUILD_WEB=On \
         -DCLINGO_BUILD_WITH_PYTHON=Off \
@@ -41,7 +40,7 @@ emcmake cmake \
         -DCLASP_BUILD_WITH_THREADS=Off \
         -DCMAKE_VERBOSE_MAKEFILE=On \
         -DCMAKE_BUILD_TYPE=release \
-        -DCMAKE_CXX_FLAGS="-s ALLOW_MEMORY_GROWTH=1 -s ASM_JS=0" \
+        -DCMAKE_CXX_FLAGS="-s ALLOW_MEMORY_GROWTH=1" \
         -DCMAKE_EXE_LINKER_FLAGS="" \
         -DCMAKE_EXE_LINKER_FLAGS_RELEASE="" \
         ../..
@@ -52,5 +51,4 @@ make -C build/web web
 # copy the result into the test site
 cd ..  # return to root
 cp ./clingo/build/web/bin/clingo.js ./test_site/js/
-# cp ./clingo/build/web/bin/clingo.js.mem ./test_site # when ASM_JS=1 is given
 cp ./clingo/build/web/bin/clingo.wasm ./test_site
