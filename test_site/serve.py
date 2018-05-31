@@ -14,4 +14,7 @@ Handler.extensions_map.update({
 httpd = socketserver.TCPServer(("", PORT), Handler)
 
 print(f"Serving HTTP with WASM support on 0.0.0.0 port {PORT} (http://0.0.0.0:{PORT}/) ...")
-httpd.serve_forever()
+try:
+    httpd.serve_forever()
+except KeyboardInterrupt:
+    httpd.shutdown()
