@@ -3,6 +3,8 @@
 Simple example of how to use clingo into browsers, client-side.
 The main principle is to compile clingo to WebAssembly, then wrap it into client-side js modules.
 
+Try Clingo in your browser at https://aluriak.github.io/webclingo-example.
+
 **This method is working, but probably not the best way to embed clingo in websites.**
 
 ## compile_web.sh
@@ -28,7 +30,6 @@ To open the website,
 1. `cd docs`
 2. `python3 serve.py`
 3. Then open http://0.0.0.0:8000/
-
 
 This site is static.
 

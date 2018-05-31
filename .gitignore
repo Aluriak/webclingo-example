@@ -2,6 +2,4 @@ clingo/
 .cache/
 venv/
 emscripten
-clingo.js
-clingo.js.mem
-clingo.wasm
+lua

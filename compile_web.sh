@@ -22,7 +22,7 @@ source ./emsdk_env.sh
 cd ../..
 
 # compile lua
-unzip lua.zip
+unzip -o lua.zip -d lua
 cd lua
 emmake make generic local
 cd ..
