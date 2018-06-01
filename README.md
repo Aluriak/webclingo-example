@@ -14,12 +14,12 @@ The `compile_web.sh` script will:
 - download [emscripten](http://kripken.github.io/emscripten-site/index.html) and source its env
 - download the clingo repository
 - run the web clingo compilation
-- properly place the output files into `test_site/`
+- properly place the output files into `docs/`
 
 __You should probably not use this script as-is__, but instead take inspiration from it.
 
 
-## test_site
+## docs
 
 This is a simple website copied and pruned from [potassco.org/clingo/run](https://potassco.org/clingo/run),
 which should be fully functional after the incorporation of `clingo.js` and `clingo.wasm` files
@@ -27,7 +27,7 @@ which should be fully functional after the incorporation of `clingo.js` and `cli
 
 To open the website, 
 
-1. `cd test_site`
+1. `cd docs`
 2. `python3 serve.py`
 3. Then open http://0.0.0.0:8000/
 
