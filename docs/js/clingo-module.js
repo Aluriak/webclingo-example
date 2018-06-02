@@ -1,4 +1,4 @@
-var Module;
+var Clingo = {};
 var outputElement = document.getElementById('output');
 var runButton = document.getElementById('run');
 var input = ace.edit("input");
@@ -47,7 +47,7 @@ function solve() {
     }
   }
   output = "";
-  Module.ccall('run', 'number', ['string', 'string'], [input.getValue(), options])
+  Clingo.ccall('run', 'number', ['string', 'string'], [input.getValue(), options])
   updateOutput();
 }
 
@@ -63,7 +63,7 @@ function updateOutput() {
   }
 }
 
-Module = {
+Clingo = {
   preRun: [],
   postRun: [],
   print: (function() {
@@ -90,13 +90,16 @@ Module = {
   totalDependencies: 0,
   monitorRunDependencies: function(left) {
     this.totalDependencies = Math.max(this.totalDependencies, left);
-    Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies-left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
+    Clingo.setStatus(left ? 'Preparing... (' + (this.totalDependencies-left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
   }
 };
-Module.setStatus('Downloading...');
+Clingo.setStatus('Downloading...');
 window.onerror = function(event) {
-  Module.setStatus('Exception thrown, see JavaScript console');
+  Clingo.setStatus('Exception thrown, see JavaScript console');
 };
+
+// Initialize Emscripten Module
+Module(Clingo);
 
 var QueryString = function () {
   var query_string = {};

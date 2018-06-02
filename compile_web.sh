@@ -21,12 +21,19 @@ source ./emsdk_env.sh
 
 cd ../..
 
-# remove clingo if it already exists
-rm -rf clingo
+# compile lua
+unzip -o lua.zip -d lua
+cd lua
+emmake make generic local
+cd ..
 
 # now compile clingo
-git clone https://github.com/potassco/clingo.git
-cd clingo
+if [ ! -d "clingo" ] ; then
+    git clone https://github.com/potassco/clingo.git
+else
+    cd "clingo"
+    git pull
+fi
 git submodule update --init --recursive
 
 mkdir -p build/web
@@ -35,7 +42,10 @@ cd build/web
 emcmake cmake \
         -DCLINGO_BUILD_WEB=On \
         -DCLINGO_BUILD_WITH_PYTHON=Off \
+        -DLUA_INCLUDE_DIR="$(pwd)/../../../lua/install/include" \
+        -DLUA_LIBRARIES="$(pwd)/../../../lua/install/lib/liblua.a" \
         -DCLINGO_BUILD_WITH_LUA=On \
+        -DCLINGO_REQUIRE_LUA=On \
         -DCLINGO_BUILD_SHARED=Off \
         -DCLASP_BUILD_WITH_THREADS=Off \
         -DCMAKE_VERBOSE_MAKEFILE=On \
