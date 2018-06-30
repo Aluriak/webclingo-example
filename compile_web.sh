@@ -30,8 +30,9 @@ cd ..
 # now compile clingo
 if [ ! -d "clingo" ] ; then
     git clone https://github.com/potassco/clingo.git
+    cd clingo
 else
-    cd "clingo"
+    cd clingo
     git pull
 fi
 git submodule update --init --recursive
