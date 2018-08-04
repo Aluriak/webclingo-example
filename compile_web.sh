@@ -61,5 +61,4 @@ make -C build/web web
 
 # copy the result into the test site
 cd ..  # return to root
-cp ./clingo/build/web/bin/clingo.js ./docs/js/
-cp ./clingo/build/web/bin/clingo.wasm ./docs
+cp ./clingo/build/web/bin/clingo.* ./docs/js/
