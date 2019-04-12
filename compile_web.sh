@@ -18,13 +18,12 @@ cd emsdk-portable
 ./emsdk activate latest
 # Activate PATH and other environment variables in the current terminal
 source ./emsdk_env.sh
-
 cd ../..
 
 # compile lua
 unzip -o lua.zip -d lua
 cd lua
-emmake make generic local
+emcmake make generic local
 cd ..
 
 # now compile clingo
@@ -40,9 +39,9 @@ git submodule update --init --recursive
 mkdir -p build/web
 cd build/web
 
-emcmake cmake \
+sudo emcmake cmake \
         -DCLINGO_BUILD_WEB=On \
-        -DCLINGO_BUILD_WITH_PYTHON=Off \
+        -DCLINGO_BUILD_WITH_PYTHON=On \
         -DLUA_INCLUDE_DIR="$(pwd)/../../../lua/install/include" \
         -DLUA_LIBRARIES="$(pwd)/../../../lua/install/lib/liblua.a" \
         -DCLINGO_BUILD_WITH_LUA=On \
