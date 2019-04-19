@@ -45,8 +45,10 @@ cd build/web
 emcmake cmake \
         -DCLINGO_BUILD_WEB=On \
         -DCLINGO_BUILD_WITH_PYTHON=On \
-		-DPYTHON_INCLUDE_DIR="/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7" \
-		-DPYTHON_LIBRARY="/Users/flavioeverardo/miniconda2/lib/libpython2.7.dylib" \
+		-DCLINGO_REQUIRE_PYTHON=On \
+		-DPYCLINGO_USER_INSTALL=Off \
+		-DPYTHON_INCLUDE_DIR="$(pwd)/../../../Python-2.7.16/Include" \
+		-DPYTHON_LIBRARY="$(pwd)/../../../Python-2.7.16/libpython2.7.a" \
         -DLUA_INCLUDE_DIR="$(pwd)/../../../lua/install/include" \
         -DLUA_LIBRARIES="$(pwd)/../../../lua/install/lib/liblua.a" \
         -DCLINGO_BUILD_WITH_LUA=On \
