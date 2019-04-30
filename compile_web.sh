@@ -3,18 +3,15 @@
 set -e
 set -x
 
-# install emscripten (copy-paste of documentation)
-#mkdir -p emscripten
-#cd emscripten
-#wget http://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz -O emsdk-portable.tar.gz
-#tar -xvf emsdk-portable.tar.gz
-#cd emsdk-portable
-#git clone https://github.com/emscripten-core/emsdk.git
-cd emsdk
-git pull
+if [ ! -d "emsdk" ] ; then
+    # install emscripten (copy-paste of documentation)
+	git clone https://github.com/emscripten-core/emsdk.git
+	cd emsdk
+else
+	cd emsdk
+	git pull
+fi
 
-# Fetch the latest registry of available tools.
-#./emsdk update
 # Download and install the latest SDK tools.
 ./emsdk install latest
 # Make the "latest" SDK "active" for the current user. (writes ~/.emscripten file)
@@ -44,11 +41,7 @@ cd build/web
 
 emcmake cmake \
         -DCLINGO_BUILD_WEB=On \
-        -DCLINGO_BUILD_WITH_PYTHON=On \
-		-DCLINGO_REQUIRE_PYTHON=On \
-		-DPYCLINGO_USER_INSTALL=Off \
-		-DPYTHON_INCLUDE_DIR="$(pwd)/../../../Python-2.7.16/Include" \
-		-DPYTHON_LIBRARY="$(pwd)/../../../Python-2.7.16/libpython2.7.a" \
+        -DCLINGO_BUILD_WITH_PYTHON=Off \
         -DLUA_INCLUDE_DIR="$(pwd)/../../../lua/install/include" \
         -DLUA_LIBRARIES="$(pwd)/../../../lua/install/lib/liblua.a" \
         -DCLINGO_BUILD_WITH_LUA=On \
