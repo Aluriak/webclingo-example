@@ -50,9 +50,9 @@ emcmake cmake \
         -DCLASP_BUILD_WITH_THREADS=Off \
         -DCMAKE_VERBOSE_MAKEFILE=On \
         -DCMAKE_BUILD_TYPE=release \
-        -DCMAKE_CXX_FLAGS="-s ALLOW_MEMORY_GROWTH=1 -s MODULARIZE=1" \
-        -DCMAKE_EXE_LINKER_FLAGS="" \
-        -DCMAKE_EXE_LINKER_FLAGS_RELEASE="" \
+        -DCMAKE_CXX_FLAGS="-s ALLOW_MEMORY_GROWTH=0 -s MODULARIZE=1" \
+        -DCMAKE_EXE_LINKER_FLAGS="-s WASM=0" \
+        -DCMAKE_EXE_LINKER_FLAGS_RELEASE="-s WASM=0" \
         ../..
 
 cd ../..
