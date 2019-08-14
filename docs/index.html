@@ -72,9 +72,15 @@ innocent(Suspect) :- motive(Suspect), not guilty(Suspect).</pre>
                 </select>
               </li>
               <li>
-                <input type="checkbox" id="project" />&nbsp;project</li>
+                <label>
+                  <input type="checkbox" id="project" />&nbsp;project
+                </label>
+              </li>
               <li>
-                <input type="checkbox" id="stats" />&nbsp;statistics</li>
+                <label>
+                  <input type="checkbox" id="stats" />&nbsp;statistics
+                </label>
+              </li>
             </ul>
 
             <input type="button" id="run" value="&#x25ba; Run!" onclick="solve()" disabled/>
