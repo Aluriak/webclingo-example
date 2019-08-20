@@ -37,26 +37,21 @@ fi
 git submodule update --init --recursive
 
 mkdir -p build/web
-cd build/web
 
-emcmake cmake \
-        -DCLINGO_BUILD_WEB=On \
-        -DCLINGO_BUILD_WITH_PYTHON=Off \
-        -DLUA_INCLUDE_DIR="$(pwd)/../../../lua/install/include" \
-        -DLUA_LIBRARIES="$(pwd)/../../../lua/install/lib/liblua.a" \
-        -DCLINGO_BUILD_WITH_LUA=On \
-        -DCLINGO_REQUIRE_LUA=On \
-        -DCLINGO_BUILD_SHARED=Off \
-        -DCLASP_BUILD_WITH_THREADS=Off \
-        -DCMAKE_VERBOSE_MAKEFILE=On \
-        -DCMAKE_BUILD_TYPE=release \
-        -DCMAKE_CXX_FLAGS="-s ALLOW_MEMORY_GROWTH=0 -s MODULARIZE=1" \
-        -DCMAKE_EXE_LINKER_FLAGS="-s WASM=0" \
+emcmake cmake -H. -B"build/web" \
+		-DCLINGO_BUILD_WEB=On \
+		-DCLINGO_BUILD_WITH_PYTHON=Off \
+		-DCLINGO_BUILD_WITH_LUA=Off \
+		-DCLINGO_BUILD_SHARED=Off \
+		-DCLASP_BUILD_WITH_THREADS=Off \
+		-DCMAKE_VERBOSE_MAKEFILE=On \
+		-DCMAKE_BUILD_TYPE=release \
+		-DCMAKE_CXX_FLAGS="-std=c++11 -Wall -s DISABLE_EXCEPTION_CATCHING=0" \
+		-DCMAKE_CXX_FLAGS_RELEASE="-Os -DNDEBUG" \
+		-DCMAKE_EXE_LINKER_FLAGS="-s WASM=0" \
         -DCMAKE_EXE_LINKER_FLAGS_RELEASE="-s WASM=0" \
-        ../..
 
-cd ../..
-make -C build/web web
+cmake --build "build/web" --target web
 
 # copy the result into the test site
 cd ..  # return to root

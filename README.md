@@ -33,7 +33,7 @@ If you want to build yourself the latest clingo version, keep reading. </br>
 - Any other missing platform-dependency for emscripten. https://emscripten.org/docs/getting_started/downloads.html
 
 ## Build
-Simply run ```./compile_web.sh```.</br>
+Simply run ```sudo ./compile_web.sh```.</br>
 This script:
 - downloads [emscripten](http://kripken.github.io/emscripten-site/index.html) and source its env
 - download the clingo repository
