@@ -20,12 +20,6 @@ fi
 source ./emsdk_env.sh
 cd ..
 
-# compile lua
-unzip -o lua.zip -d lua
-cd lua
-emcmake make generic local
-cd ..
-
 # now compile clingo
 if [ ! -d "clingo" ] ; then
     git clone https://github.com/potassco/clingo.git
@@ -38,6 +32,7 @@ git submodule update --init --recursive
 
 mkdir -p build/web
 
+## -s WASM flag, 0 for js (.mem), 1 for wasm
 emcmake cmake -H. -B"build/web" \
 		-DCLINGO_BUILD_WEB=On \
 		-DCLINGO_BUILD_WITH_PYTHON=Off \
@@ -48,8 +43,8 @@ emcmake cmake -H. -B"build/web" \
 		-DCMAKE_BUILD_TYPE=release \
 		-DCMAKE_CXX_FLAGS="-std=c++11 -Wall -s DISABLE_EXCEPTION_CATCHING=0" \
 		-DCMAKE_CXX_FLAGS_RELEASE="-Os -DNDEBUG" \
-		-DCMAKE_EXE_LINKER_FLAGS="-s WASM=0" \
-        -DCMAKE_EXE_LINKER_FLAGS_RELEASE="-s WASM=0" \
+		-DCMAKE_EXE_LINKER_FLAGS="" \
+        -DCMAKE_EXE_LINKER_FLAGS_RELEASE=""
 
 cmake --build "build/web" --target web
 
