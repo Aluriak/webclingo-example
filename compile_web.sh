@@ -28,14 +28,9 @@ emmake make generic local
 cd ..
 
 # now compile clingo
-if [ ! -d "clingo" ] ; then
-    git clone https://github.com/potassco/clingo.git
-    cd clingo
-else
-    cd clingo
-    git pull
-fi
 git submodule update --init --recursive
+
+cd clingo
 
 mkdir -p build/web
 cd build/web
